@@ -1,0 +1,32 @@
+{
+    "name": "nyehandel/omnipay-paypal",
+    "description": "Omnipay support for PayPal checkout v2 api",
+    "type": "library",
+    "authors": [
+        {
+            "name": "David Andersson",
+            "email": "david@nyehandel.se"
+        }
+    ],
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Nyehandel\\Omnipay\\Paypal\\" : "src/"
+        }
+    },
+    "require": {
+        "omnipay/common": "^3",
+        "omnipay/paypal": "^3.0"
+    },
+    "require-dev": {
+        "omnipay/tests": "^3",
+        "squizlabs/php_codesniffer": "^3",
+        "phpro/grumphp": "^0.14"
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "3.0.x-dev"
+        }
+    },
+    "prefer-stable": true
+}
