@@ -1,14 +1,25 @@
 {
     "name": "nyehandel/omnipay-paypal",
-    "description": "Omnipay support for PayPal checkout v2 api",
     "type": "library",
+    "description": "Omnipay support for PayPal checkout v2 api",
+    "keywords": [
+        "gateway",
+        "merchant",
+        "omnipay",
+        "pay",
+        "payment",
+        "paypal",
+        "purchase",
+        "v2"
+    ],
+    "homepage": "https://github.com/nyehandelab/omnipay-paypal",
+    "license": "MIT",
     "authors": [
         {
             "name": "David Andersson",
             "email": "david@nyehandel.se"
         }
     ],
-    "license": "MIT",
     "autoload": {
         "psr-4": {
             "Nyehandel\\Omnipay\\Paypal\\" : "src/"
