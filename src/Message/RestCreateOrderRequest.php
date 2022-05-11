@@ -56,7 +56,193 @@ class RestCreateOrderRequest extends RestAuthorizeRequest {
                 ];
             }
         }
+
+        $body['payer']['email_address'] = $this->getEmailAddress();
+        $body['payer']['name'] = [
+            'given_name' => $this->getGivenName(),
+            'surname' => $this->getSurname(),
+        ];
+        $body['payer']['phone'] = [
+            'phone_number' => [
+                'national_number' => $this->getPhoneNumber(),
+            ],
+        ];
+        $body['payer']['address'] = [
+            'address_line_1' => $this->getAddress(),
+            'admin_area_2' => $this->getCity(),
+            'postal_code' => $this->getPostcode(),
+            'country_code' => $this->getCountryCode(),
+        ];
+
         return $body;
+    }
+
+    /**
+     * Get the email
+     *
+     * @return string
+     */
+    public function getEmailAddress()
+    {
+        return $this->getParameter('email_address');
+    }
+
+    /**
+     * Set the email address
+     *
+     * @param string $value
+     * @return RestCreateOrderRequest provides a fluent interface.
+     */
+    public function setEmailAddress($value)
+    {
+        return $this->setParameter('email_address', $value);
+    }
+
+    /**
+     * Get the given name
+     *
+     * @return string
+     */
+    public function getGivenName()
+    {
+        return $this->getParameter('given_name');
+    }
+
+    /**
+     * Set the given name
+     *
+     * @param string $value
+     * @return RestCreateOrderRequest provides a fluent interface.
+     */
+    public function setGivenName($value)
+    {
+        return $this->setParameter('given_name', $value);
+    }
+
+    /**
+     * Get the surname
+     *
+     * @return string
+     */
+    public function getSurname()
+    {
+        return $this->getParameter('surname');
+    }
+
+    /**
+     * Set the surname
+     *
+     * @param string $value
+     * @return RestCreateOrderRequest provides a fluent interface.
+     */
+    public function setSurname($value)
+    {
+        return $this->setParameter('surname', $value);
+    }
+
+    /**
+     * Get the phone number
+     *
+     * @return string
+     */
+    public function getPhoneNumber()
+    {
+        return $this->getParameter('phone_number');
+    }
+
+    /**
+     * Set the phone number
+     *
+     * @param string $value
+     * @return RestCreateOrderRequest provides a fluent interface.
+     */
+    public function setPhoneNumber($value)
+    {
+        return $this->setParameter('phone_number', $value);
+    }
+
+    /**
+     * Get the address
+     *
+     * @return string
+     */
+    public function getAddress()
+    {
+        return $this->getParameter('address');
+    }
+
+    /**
+     * Set the address
+     *
+     * @param string $value
+     * @return RestCreateOrderRequest provides a fluent interface.
+     */
+    public function setAddress($value)
+    {
+        return $this->setParameter('address', $value);
+    }
+
+    /**
+     * Get the postcode
+     *
+     * @return string
+     */
+    public function getPostcode()
+    {
+        return $this->getParameter('postcode');
+    }
+
+    /**
+     * Set the postcode
+     *
+     * @param string $value
+     * @return RestCreateOrderRequest provides a fluent interface.
+     */
+    public function setPostcode($value)
+    {
+        return $this->setParameter('postcode', $value);
+    }
+
+    /**
+     * Get the city
+     *
+     * @return string
+     */
+    public function getCity()
+    {
+        return $this->getParameter('city');
+    }
+
+    /**
+     * Set the city
+     *
+     * @param string $value
+     * @return RestCreateOrderRequest provides a fluent interface.
+     */
+    public function setCity($value)
+    {
+        return $this->setParameter('city', $value);
+    }
+
+    /**
+     * Get the country code
+     *
+     * @return string
+     */
+    public function getCountryCode()
+    {
+        return $this->getParameter('country_code');
+    }
+
+    /**
+     * Set the country code
+     *
+     * @param string $value
+     * @return RestCreateOrderRequest provides a fluent interface.
+     */
+    public function setCountryCode($value)
+    {
+        return $this->setParameter('country_code', $value);
     }
 
     protected function createResponse($data, $statusCode): RestCreateOrderResponse {
