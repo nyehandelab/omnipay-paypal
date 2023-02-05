@@ -57,22 +57,29 @@ class RestCreateOrderRequest extends RestAuthorizeRequest {
             }
         }
 
-        $body['payer']['email_address'] = $this->getEmailAddress();
-        $body['payer']['name'] = [
-            'given_name' => $this->getGivenName(),
-            'surname' => $this->getSurname(),
-        ];
-        $body['payer']['phone'] = [
-            'phone_number' => [
-                'national_number' => $this->getPhoneNumber(),
-            ],
-        ];
-        $body['payer']['address'] = [
-            'address_line_1' => $this->getAddress(),
-            'admin_area_2' => $this->getCity(),
-            'postal_code' => $this->getPostcode(),
-            'country_code' => $this->getCountryCode(),
-        ];
+        if($this->getEmailAddress())
+            $body['payer']['email_address'] = $this->getEmailAddress();
+            
+        if($this->getSurname()&&$this->getGivenName())
+            $body['payer']['name'] = [
+                'given_name' => $this->getGivenName(),
+                'surname' => $this->getSurname(),
+            ];
+        
+        if($this->getPhoneNumber())
+            $body['payer']['phone'] = [
+                'phone_number' => [
+                    'national_number' => $this->getPhoneNumber(),
+                ],
+            ];
+        
+        if($this->getAddress()&&$this->getCity()&&$this->getPostcode()&&$this->getCountryCode())
+            $body['payer']['address'] = [
+                'address_line_1' => $this->getAddress(),
+                'admin_area_2' => $this->getCity(),
+                'postal_code' => $this->getPostcode(),
+                'country_code' => $this->getCountryCode(),
+            ];
 
         return $body;
     }
